@@ -17,24 +17,15 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -52,11 +43,43 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyDJLTG9jMpmfPGvT8agSMlf3eS-6JapdHk',
+    appId: '1:1071055611755:web:f0c0df227da6b320d0ce2e',
+    messagingSenderId: '1071055611755',
+    projectId: 'servito-services',
+    authDomain: 'servito-services.firebaseapp.com',
+    storageBucket: 'servito-services.appspot.com',
+    measurementId: 'G-HSC6W5JBW2',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCCuB6bKJiuURUNcP9DjwFWfhktYCT3vtU',
     appId: '1:1071055611755:android:df0d336fcd85ce6ad0ce2e',
     messagingSenderId: '1071055611755',
     projectId: 'servito-services',
     storageBucket: 'servito-services.appspot.com',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyC_MS9vpvm8Ai_XRmNJSYU0kXfFuq7VJO8',
+    appId: '1:1071055611755:ios:2605427a359a3109d0ce2e',
+    messagingSenderId: '1071055611755',
+    projectId: 'servito-services',
+    storageBucket: 'servito-services.appspot.com',
+    androidClientId: '1071055611755-0i5h7j56gf46f6kf5lskqfe3llpfu61b.apps.googleusercontent.com',
+    iosClientId: '1071055611755-f19t1rm2se6liropj4hnti8fv7gp6d5g.apps.googleusercontent.com',
+    iosBundleId: 'com.example.fflutter',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyC_MS9vpvm8Ai_XRmNJSYU0kXfFuq7VJO8',
+    appId: '1:1071055611755:ios:921503ccd442b57ed0ce2e',
+    messagingSenderId: '1071055611755',
+    projectId: 'servito-services',
+    storageBucket: 'servito-services.appspot.com',
+    androidClientId: '1071055611755-0i5h7j56gf46f6kf5lskqfe3llpfu61b.apps.googleusercontent.com',
+    iosClientId: '1071055611755-51q4gcfibi6h5qdl2hpubgrq07c521j1.apps.googleusercontent.com',
+    iosBundleId: 'com.example.fflutter.RunnerTests',
   );
 }
